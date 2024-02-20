@@ -17,34 +17,32 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex justify-between items-center">
                     <div class="flex-shrink-0">
-                        <a
-                            href="./index.html"
-                            class="text-white text-xl font-bold"
-                            >API Playground</a
-                        >
+                        <a href="./index.html" class="text-white text-xl font-bold">API Playground</a>
+                    </div>
+                    <div class="md:hidden">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-button" class="text-white hover:text-gray-300 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
                     <div class="hidden md:block">
-                        <a
-                            href="./weatherApi.html"
-                            class="text-white hover:text-gray-300 px-3 py-2 rounded-lg"
-                            >Weather API</a
-                        >
-                        <a
-                            href="./newsApi.html"
-                            class="text-white hover:text-gray-300 px-3 py-2 rounded-lg active"
-                            >News API</a
-                        >
-                        <a
-                            href="./countryApi.html"
-                            class="text-white hover:text-gray-300 px-3 py-2 rounded-lg"
-                            >Country Info API</a
-                        >
-                        <a
-                            href="#"
-                            class="text-white hover:text-gray-300 px-3 py-2 rounded-lg"
-                            >Pokémon API</a
-                        >
+                        <!-- Desktop Menu -->
+                        <a href="./weatherApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg active">Weather API</a>
+                        <a href="./newsApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">News API</a>
+                        <a href="./countryApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">Country Info API</a>
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">Pokémon API</a>
                     </div>
+                </div>
+            </div>
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="./weatherApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg">Weather API</a>
+                    <a href="./newsApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg active">News API</a>
+                    <a href="./countryApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg">Country Info API</a>
+                    <a href="#" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg">Pokémon API</a>
                 </div>
             </div>
         </nav>
@@ -54,33 +52,19 @@
             <h1 class="text-3xl font-bold text-center mb-4">News API</h1>
             <!-- content goes here -->
             <!-- News Card Component -->
-            <div
-                class="w-full py-4 my-4 mx-auto p-5 rounded-lg text-black dark:text-slate-100 bg-slate-200 dark:bg-slate-900"
-            >
+            <div class="w-full py-4 my-4 mx-auto p-5 rounded-lg text-black dark:text-slate-100 bg-slate-200 dark:bg-slate-900">
                 <h2 class="py-2 px-4">News API (newsdata.io)</h2>
                 <form id="newsApiForm" class="p-4">
-                    <input
-                        id="topicInput"
-                        class="border p-2 focus:border-blue-600 focus:ring-blue-500 text-black rounded"
-                        type="text"
-                        placeholder="Enter topic name"
-                        spellcheck="false"
-                        required
-                    />
+                    <input id="topicInput" class="border p-2 focus:border-blue-600 focus:ring-blue-500 text-black rounded" type="text" placeholder="Enter topic name" spellcheck="false" required />
 
-                    <button
-                        class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-800 hover:text-blue-600 hover:border-blue-600 hover:ring-blue-600 hover:ring-2 transition ease-in-out delay-75"
-                        type="submit"
-                    >
+                    <button class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-800 hover:text-blue-600 hover:border-blue-600 hover:ring-blue-600 hover:ring-2 transition ease-in-out delay-75" type="submit">
                         Search
                     </button>
                 </form>
                 <span id="responseMessage" class="py-3 px-2 text-sm"></span>
                 <div class="flex justify-between px-4">
                     <span id="totalNewsCount" class="py-3 px-2"></span>
-                    <button
-                        class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-600 transition ease-in-out delay-75 nextButton"
-                    >
+                    <button class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-600 transition ease-in-out delay-75 nextButton">
                         Next
                     </button>
                 </div>
@@ -92,9 +76,7 @@
 
                 <!-- Pagination Buttons -->
                 <div class="mt-4 flex justify-end px-4">
-                    <button
-                        class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-600 transition ease-in-out delay-75 nextButton"
-                    >
+                    <button class="py-3 px-4 bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-600 transition ease-in-out delay-75 nextButton">
                         Next
                     </button>
                 </div>
@@ -104,17 +86,7 @@
         <!-- Footer -->
         <footer class="mt-auto py-4 bg-gray-800 text-white text-center">
             &copy; 2024 API Playground | Made with ❤️ by
-            <a
-                class="text-blue-600"
-                target="_blank"
-                href="https://github.com/topukhan"
-                >Topu Khan
-                <img
-                    class="inline rounded-full"
-                    src="https://avatars.githubusercontent.com/u/98571259?v=4"
-                    alt=""
-                    style="width: 30px; height: 30px"
-            /></a>
+            <a class="text-blue-600" target="_blank" href="https://github.com/topukhan">Topu Khan <img class="inline rounded-full" src="https://avatars.githubusercontent.com/u/98571259?v=4" alt="" style="width: 30px; height: 30px;" /></a>
         </footer>
 
         <!-- scripts -->
@@ -128,9 +100,7 @@
                 let topicSearchFrom = document.getElementById("newsApiForm");
                 topicSearchFrom.addEventListener("submit", topicSearch);
                 // search button
-                const searchButton = topicSearchFrom.querySelector(
-                    'button[type="submit"]'
-                );
+                const searchButton = topicSearchFrom.querySelector('button[type="submit"]');
 
                 function topicSearch(e) {
                     if (e && e.submitter) {
@@ -140,10 +110,7 @@
 
                         // Add the loading class to the form to show the spinner
                         topicSearchFrom.classList.add("loading");
-                        searchButton.classList.add(
-                            "opacity-50",
-                            "cursor-not-allowed"
-                        );
+                        searchButton.classList.add("opacity-50", "cursor-not-allowed");
 
                         fetchNews();
                     } else {
@@ -151,10 +118,7 @@
 
                         // Add the loading class to the form to show the spinner
                         topicSearchFrom.classList.add("loading");
-                        searchButton.classList.add(
-                            "opacity-50",
-                            "cursor-not-allowed"
-                        );
+                        searchButton.classList.add("opacity-50", "cursor-not-allowed");
 
                         fetchNews();
                     }
@@ -164,38 +128,26 @@
                     const response = await fetch(apiUrl);
                     let data = await response.json();
                     topicSearchFrom.classList.remove("loading");
-                    searchButton.classList.remove(
-                        "opacity-50",
-                        "cursor-not-allowed"
-                    );
+                    searchButton.classList.remove("opacity-50", "cursor-not-allowed");
 
                     if (data.status === "error") {
                         console.error(data.results.message);
-                        document.getElementById("responseMessage").innerHTML =
-                            data.results.message;
+                        document.getElementById("responseMessage").innerHTML = data.results.message;
                         return;
                     }
 
                     if (data.status === "success" && data.totalResults > 0) {
-                        document.getElementById("responseMessage").innerHTML =
-                            "";
-                        document.getElementById(
-                            "totalNewsCount"
-                        ).innerHTML = `Total ${data.totalResults} News Found for "${topic}"`;
+                        document.getElementById("responseMessage").innerHTML = "";
+                        document.getElementById("totalNewsCount").innerHTML = `Total ${data.totalResults} News Found for "${topic}"`;
 
                         // Rendering news cards
                         renderNewsCards(data.results);
 
                         // Updating next page token
                         nextPage = data.nextPage;
-                    } else if (
-                        data.status === "success" &&
-                        data.totalResults == 0
-                    ) {
-                        document.getElementById("totalNewsCount").innerHTML =
-                            "";
-                        document.getElementById("responseMessage").innerHTML =
-                            "No News Found";
+                    } else if (data.status === "success" && data.totalResults == 0) {
+                        document.getElementById("totalNewsCount").innerHTML = "";
+                        document.getElementById("responseMessage").innerHTML = "No News Found";
                         newsCardsContainer.innerHTML = "";
                     } else {
                         console.log("Something went wrong");
@@ -204,47 +156,22 @@
 
                 // Function to render news cards based on data
                 function renderNewsCards(data) {
-                    const newsCardsContainer =
-                        document.getElementById("newsCardsContainer");
+                    const newsCardsContainer = document.getElementById("newsCardsContainer");
                     newsCardsContainer.innerHTML = ""; // Clear previous content
 
                     data.forEach((article) => {
                         console.log(article);
                         const card = document.createElement("div");
-                        card.classList.add(
-                            "w-full",
-                            "sm:w-1/2",
-                            "md:w-1/3",
-                            "mb-4",
-                            "p-4"
-                        );
+                        card.classList.add("w-full", "sm:w-1/2", "md:w-1/3", "mb-4", "p-4");
 
                         const articleCard = document.createElement("article");
-                        articleCard.classList.add(
-                            "mb-4",
-                            "p-6",
-                            "rounded-xl",
-                            "bg-white",
-                            "dark:bg-slate-800",
-                            "flex",
-                            "flex-col",
-                            "bg-clip-border",
-                            "h-full",
-                            "justify-between"
-                        );
+                        articleCard.classList.add("mb-4", "p-6", "rounded-xl", "bg-white", "dark:bg-slate-800", "flex", "flex-col", "bg-clip-border", "h-full", "justify-between");
 
                         // Populating the articleCard with data
                         // source name
                         const sourceName = document.createElement("span");
-                        sourceName.classList.add(
-                            "text-lg",
-                            "font-bold",
-                            "text-white"
-                        );
-                        sourceName.textContent =
-                            article.creator && article.creator.length > 0
-                                ? article.creator[0]
-                                : article.source_id;
+                        sourceName.classList.add("text-lg", "font-bold", "text-white");
+                        sourceName.textContent = article.creator && article.creator.length > 0 ? article.creator[0] : article.source_id;
 
                         //published date ðŸ“…
                         const publishedDate = document.createElement("span");
@@ -252,13 +179,8 @@
                         publishedDate.textContent = article.pubDate;
 
                         // article image ðŸŽ¦
-                        const articleImageContainer =
-                            document.createElement("div");
-                        articleImageContainer.classList.add(
-                            "flex",
-                            "justify-between",
-                            "gap-1"
-                        );
+                        const articleImageContainer = document.createElement("div");
+                        articleImageContainer.classList.add("flex", "justify-between", "gap-1");
 
                         const imageLink = document.createElement("a");
                         imageLink.classList.add("flex");
@@ -266,14 +188,8 @@
                         imageLink.href = article.link;
 
                         const newsImage = document.createElement("img");
-                        newsImage.classList.add(
-                            "w-full",
-                            "h-auto",
-                            "rounded-lg"
-                        );
-                        newsImage.src = article.image_url
-                            ? article.image_url
-                            : "https://i.ibb.co/WF7FspB/no-image-found.png";
+                        newsImage.classList.add("w-full", "h-auto", "rounded-lg");
+                        newsImage.src = article.image_url ? article.image_url : "https://i.ibb.co/WF7FspB/no-image-found.png";
 
                         // Append the elements to build the structure
                         imageLink.appendChild(newsImage);
@@ -281,20 +197,12 @@
 
                         // title of the article
                         const articleTitle = document.createElement("h2");
-                        articleTitle.classList.add(
-                            "text-lg",
-                            "font-extrabold",
-                            "pt-4"
-                        );
+                        articleTitle.classList.add("text-lg", "font-extrabold", "pt-4");
                         articleTitle.textContent = article.title;
 
                         // article cetegory container
-                        const articleCetegoryContainer =
-                            document.createElement("div");
-                        articleCetegoryContainer.classList.add(
-                            "text-slate-500",
-                            "mt-1"
-                        );
+                        const articleCetegoryContainer = document.createElement("div");
+                        articleCetegoryContainer.classList.add("text-slate-500", "mt-1");
                         // span for static content
                         const categorySpan = document.createElement("span");
                         categorySpan.textContent = "category: ";
@@ -306,12 +214,8 @@
                         articleCetegoryContainer.appendChild(articleCategory);
 
                         // article country container
-                        const articleCountryContainer =
-                            document.createElement("div");
-                        articleCountryContainer.classList.add(
-                            "text-slate-500",
-                            "mt-1"
-                        );
+                        const articleCountryContainer = document.createElement("div");
+                        articleCountryContainer.classList.add("text-slate-500", "mt-1");
                         // span for static content
                         const countrySpan = document.createElement("span");
                         countrySpan.textContent = "country: ";
@@ -327,8 +231,7 @@
                         articlePadding.classList.add("py-4");
 
                         // article detail button container
-                        const detailButtonContainer =
-                            document.createElement("div");
+                        const detailButtonContainer = document.createElement("div");
                         detailButtonContainer.classList.add("pt-2", "w-full");
 
                         // article detail button
@@ -392,6 +295,12 @@
                 // Initial fetch on page load
                 document.addEventListener("DOMContentLoaded", fetchNews);
                 topicSearch();
+            });
+        </script>
+        <script>
+            // Toggle mobile menu
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
             });
         </script>
     </body>
