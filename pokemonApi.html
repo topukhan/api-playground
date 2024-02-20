@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather API</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="./css/style.css" />
+        <style>
+            /* Additional styles can be added here */
+        </style>
+    </head>
+    <body class="bg-gray-100 min-h-screen flex flex-col">
+        <!-- navbar.html -->
+        <nav class="bg-gray-800 py-4">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex-shrink-0">
+                        <a href="./index.html" class="text-white text-xl font-bold">API Playground</a>
+                    </div>
+                    <div class="md:hidden">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-button" class="text-white hover:text-gray-300 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="hidden md:block">
+                        <!-- Desktop Menu -->
+                        <a href="./weatherApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg ">Weather API</a>
+                        <a href="./newsApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">News API</a>
+                        <a href="./countryApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">Country Info API</a>
+                        <a href="./pokemonApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg active">Pokémon API</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="./weatherApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg ">Weather API</a>
+                    <a href="./newsApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg">News API</a>
+                    <a href="./countryApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg">Country Info API</a>
+                    <a href="./pokemonApi.html" class="text-white block hover:text-gray-300 px-3 py-2 rounded-lg active">Pokémon API</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-8">
+            <h1 class="text-3xl font-bold text-center mb-4">Pokémon API</h1>
+            <!-- content goes here -->
+            <div class=" mx-auto text-center">
+                <h1 class="text-3xl font-bold mb-4">This Page is Under Construction</h1>
+                <p class="text-lg text-gray-700 mb-8">We're working on making this page awesome. Check back soon!</p>
+              </div>
+
+            <!-- content ends here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-auto py-4 bg-gray-800 text-white text-center">
+            &copy; 2024 API Playground | Made with ❤️ by  <a class="text-blue-600" target="_blank" href="https://github.com/topukhan">Topu Khan <img class="inline rounded-full" src="https://avatars.githubusercontent.com/u/98571259?v=4" alt="" style="width: 30px; height: 30px;"></a>
+        </footer>
+
+        <!-- scripts -->
+        
+        <script>
+            // Toggle mobile menu
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        </script>
+    </body>
+</html>
