@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather API</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="./css/style.css" />
+        <style>
+            /* Additional styles can be added here */
+        </style>
+    </head>
+    <body class="bg-gray-100 min-h-screen flex flex-col">
+        <!-- navbar.html -->
+        <nav class="bg-gray-800 py-4">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex-shrink-0">
+                        <a href="./index.html" class="text-white text-xl font-bold">API Playground</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <a href="./weatherApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg active">Weather API</a>
+                        <a href="./newsApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">News API</a>
+                        <a href="./countryApi.html" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">Country Info API</a>
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-lg">Pokémon API</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-8">
+            <h1 class="text-3xl font-bold text-center mb-4">Weather API</h1>
+            <!-- content goes here -->
+            <div class="w-full rounded-lg">
+                <!--  search city  -->
+                <div class="flex space-x-10">
+                    <!-- weather api.com  -->
+                    <div class="md:w-1/2 w-full py-4 bg-blue-600 text-white mx-auto p-5 my-5 rounded-lg">
+                        <h2 class="py-2">Search by city</h2>
+                        <form id="weatherApiForm">
+                            <input id="cityNameInput" class="border p-2 focus:border-green-600 focus:ring-green-500 text-black" type="text" placeholder="Enter city Name" spellcheck="false" />
+                            <button class="bg-green-500 rounded py-2 px-3 text-white mt-2" type="submit">
+                                Search
+                            </button>
+                        </form>
+                        <span id="responseMessage" class="py-3 px-2 text-sm"></span>
+                        <!-- Weather -->
+                        <div class="text-center py-3">
+                            <img class="mx-auto" src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="weather icon" id="weatherIcon" />
+                            <span class="text-4xl font-bold" id="temperature">0</span><span class="text-3xl">°C</span>
+                            <h2 class="text-lg" id="cityName"></h2>
+                        </div>
+
+                        <div class="flex justify-around mt-8 py-3">
+                            <div class="flex items-center">
+                                <img class="mr-2" src="./images/sky.png" alt="Sky icon" />
+
+                                <div>
+                                    <span class="text-lg font-bold" id="skyCondition">clear</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <img class="mr-2" src="./images/clock.png" alt="clock icon" />
+
+                                <div>
+                                    <span class="text-lg font-bold" id="localTime">0</span>
+                                    <p>Time</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Details -->
+                        <div class="flex justify-around mt-8 py-3">
+                            <div class="flex items-center">
+                                <img class="mr-2" src="./images/humidity.png" alt="humidity icon" />
+
+                                <div>
+                                    <span class="text-lg font-bold" id="humidity">0</span><span>%</span>
+                                    <p>Humidity</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-wind px-2 text-3xl"></i>
+                                <div>
+                                    <span class="text-lg font-bold" id="windSpeed">0</span><span> KMPH</span>
+                                    <p>Wind Speed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- content ends here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-auto py-4 bg-gray-800 text-white text-center">
+            &copy; 2024 API Playground | Made with ❤️ by  <a class="text-blue-600" target="_blank" href="https://github.com/topukhan">Topu Khan</a>
+        </footer>
+
+        <!-- scripts -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let city = "tongi";
+                // 130224f19d8e4567 a66153053240302
+                let k1 = '130224f19d8e4567'
+                let k2 = 'a66153053240302'
+
+                const apiKey = k1+k2
+                let apiUrl = `https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`;
+
+                // city search form submission
+                document.getElementById("weatherApiForm").addEventListener("submit", citySearch);
+
+                function citySearch(event) {
+                    event.preventDefault();
+                    city = document.getElementById("cityNameInput").value;
+                    apiUrl = `https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`;
+
+                    console.log("searched city: ", city);
+
+                    console.log(apiUrl);
+
+                    // call checkweather function with inputted city name
+                    checkWeather();
+                }
+
+                async function checkWeather() {
+                    const response = await fetch(apiUrl);
+
+                    if (response.status === 403) {
+                        console.error("API key is not authorized. Check your WeatherAPI key.");
+                        return;
+                    }
+                    let data = await response.json();
+                    console.log("response: ", response);
+                    console.log("data : ", data);
+
+                    if (response.status === 200) {
+                        document.getElementById("responseMessage").innerHTML = "";
+
+                        console.log("city name: ", data.location.name);
+
+                        document.getElementById("temperature").innerHTML = data.current.temp_c;
+                        document.getElementById("cityName").innerHTML = data.location.name;
+                        document.getElementById("humidity").innerHTML = data.current.humidity;
+                        document.getElementById("windSpeed").innerHTML = data.current.wind_kph;
+                        document.getElementById("localTime").innerHTML = data.current.last_updated;
+                        document.getElementById("skyCondition").innerHTML = data.current.condition.text;
+                        document.getElementById("weatherIcon").setAttribute("src", data.current.condition.icon);
+                    } else if (data.error.code == 1006) {
+                        console.log(data.error.message);
+                        document.getElementById("responseMessage").innerHTML = data.error.message;
+                        setTimeout(() => {
+                            document.getElementById("responseMessage").innerHTML = "";
+                        }, 5000);
+                    } else {
+                        console.log("something went wrong");
+                    }
+                }
+                checkWeather();
+            });
+        </script>
+    </body>
+</html>
